@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home'
+let g:netrw_dirhist_2='/home/jmirabel'
+let g:netrw_dirhist_3='/home/jmirabel/devel'
+let g:netrw_dirhist_4='/home/jmirabel/devel/scripts'
+let g:netrw_dirhist_5='/home/jmirabel/.vim/c-support/templates'
+let g:netrw_dirhist_6='/home/jmirabel/devel/src/hpp-wholebody-step-corba/src/hpp'
+let g:netrw_dirhist_7='/home/jmirabel/devel/src/hpp-wholebody-step-corba/src'
+let g:netrw_dirhist_8='/home/jmirabel/devel/kineo2.07/examples/KCD/KCD_Tutorial_Basics'
