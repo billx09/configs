@@ -18,9 +18,7 @@ set mouse=a
 " autocommads on php files
 set complete=.,w,b,u,t,i,k~/.vim/syntax/php.api
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-source ~/.vim/plugin/word_complete.vim
 source ~/.vim/plugin/comments.vim
-call DoWordComplete() 
 
 " <Leader> is "\"... but on azerty keyboard it better to use "," wich is more accessible
 :let mapleader = ","
