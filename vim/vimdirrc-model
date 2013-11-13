@@ -1,2 +1,3 @@
 set path=include,src,/local/include/kitelab2.07,$DEVEL_DIR/install/include
 set tags+=~/devel/tagskineo
+set expandtab shiftwidth=2 tabstop=8
