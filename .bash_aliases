@@ -9,3 +9,4 @@ alias cdgrx='cd /opt/grx/HRP2LAAS/bin'
 
 alias filterhppoutput="sed -E 's/([A-Z]+):\/local\/jmirabel\/devel\/ros\/robotpkg\/path\/(hpp-[a-z-]+)\/[^:]+:/\1:\2:/'"
 alias genhppctags='ctags --c++-kinds=+p --language-force=c++ -R -h ".cc.hh" include/ src/'
+alias gname='guake --selected-tab --rename-tab="$(basename `pwd`)" > /dev/null'
