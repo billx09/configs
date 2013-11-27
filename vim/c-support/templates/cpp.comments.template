@@ -21,37 +21,39 @@
 //  Description:  <CURSOR>
 // =====================================================================================
 == Comments.file description impl == map:cfdi, shortcut:c, start, noindent ==
-// =====================================================================================
+// |COPYRIGHT|
+// Authors: |AUTHOR| (|EMAIL|)
 //
-//       Filename:  |FILENAME|
+// This file is part of |?PROJECTNAME|.
+// |?PROJECTNAME| is free software: you can redistribute it
+// and/or modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation, either version
+// 3 of the License, or (at your option) any later version.
 //
-//    Description:  <CURSOR>
+// |?PROJECTNAME| is distributed in the hope that it will be
+// useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// General Lesser Public License for more details.  You should have
+// received a copy of the GNU Lesser General Public License along with
+// |?PROJECTNAME|. If not, see <http://www.gnu.org/licenses/>.
+<CURSOR>
+== Comments.file description-header == map:cfdh, shortcut:h, start, noindent ==
+// |COPYRIGHT|
+// Authors: |AUTHOR| (|EMAIL|)
 //
-//        Version:  1.0
-//        Created:  |DATE| |TIME|
-//       Revision:  none
-//       Compiler:  gcc
+// This file is part of |?PROJECTNAME|.
+// |?PROJECTNAME| is free software: you can redistribute it
+// and/or modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation, either version
+// 3 of the License, or (at your option) any later version.
 //
-//         Author:  |AUTHOR| (|AUTHORREF|), |EMAIL|
-//   Organization:  |ORGANIZATION|
-//
-// =====================================================================================
-== Comments.file description header == map:cfdh, shortcut:h, start, noindent ==
-// =====================================================================================
-//
-//       Filename:  |FILENAME|
-//
-//    Description:  <CURSOR>
-//
-//        Version:  1.0
-//        Created:  |DATE| |TIME|
-//       Revision:  none
-//       Compiler:  gcc
-//
-//         Author:  |AUTHOR| (|AUTHORREF|), |EMAIL|
-//   Organization:  |ORGANIZATION|
-//
-// =====================================================================================
+// |?PROJECTNAME| is distributed in the hope that it will be
+// useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// General Lesser Public License for more details.  You should have
+// received a copy of the GNU Lesser General Public License along with
+// |?PROJECTNAME|. If not, see <http://www.gnu.org/licenses/>.
+<CURSOR>
 == ENDTEMPLATE ==
 
 == LIST: comments_c_sections == hash ==

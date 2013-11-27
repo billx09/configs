@@ -4,13 +4,13 @@
 
 SetMacro( 'AUTHOR',      'Joseph Mirabel' )
 SetMacro( 'AUTHORREF',   '' )
-SetMacro( 'COMPANY',     'LAAS-CNRS' )
-SetMacro( 'COPYRIGHT',   'Copyright (c) |YEAR|, |AUTHOR|' )
+SetMacro( 'COMPANY',     'CNRS' )
+SetMacro( 'COPYRIGHT',   'Copyright (c) |YEAR|, |ORGANIZATION|-|COMPANY|' )
 SetMacro( 'EMAIL',       'joseph.mirabel@laas.fr' )
 SetMacro( 'LICENSE',     'GNU General Public License' )
-SetMacro( 'ORGANIZATION','LAAS-CNRS' )
+SetMacro( 'ORGANIZATION','LAAS' )
 
-SetStyle( 'C' )
+SetStyle( 'CPP' )
 
 § ==========================================================
 §  File Includes and Shortcuts

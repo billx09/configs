@@ -29,7 +29,7 @@
 == Comments.file description impl == map:cfdi, shortcut:c, start, noindent ==
 /*
  * =====================================================================================
- *
+ * trololo
  *       Filename:  |FILENAME|
  *
  *    Description:  <CURSOR>
@@ -45,7 +45,7 @@
  * =====================================================================================
  */
 
-== Comments.file description header == map:cfdh, shortcut:h, start, noindent ==
+== Comments.file description-header == map:cfdh, shortcut:h, start, noindent ==
 /*
  * =====================================================================================
  *
