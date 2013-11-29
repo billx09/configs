@@ -152,15 +152,16 @@ ios::|PICK|<CURSOR>
 == ENDTEMPLATE ==
 
 == C++.class == map:+c, shortcut:c ==
-// =====================================================================================
-//        Class:  |?CLASSNAME:c|
-//  Description:  <CURSOR>
-// =====================================================================================
+
+/// \brief TODO : |?CLASSNAME:c| short description.
+/// TODO : |CLASSNAME:c| long description goes here.
+
 class |CLASSNAME|
 {
 	public:
 		// ====================  LIFECYCLE     ======================================= 
-		|CLASSNAME| ();                             // constructor 
+		/// \brief Constructor
+		|CLASSNAME| ();
 
 		// ====================  ACCESSORS     ======================================= 
 
@@ -181,17 +182,26 @@ class |CLASSNAME|
 }; // -----  end of class |CLASSNAME|  ----- 
 
 == C++.class using new == map:+cn, shortcut:n ==
-// =====================================================================================
-//        Class:  |?CLASSNAME:c|
-//  Description:  <CURSOR>
-// =====================================================================================
+
+/// \brief TODO : |?CLASSNAME:c| short description.
+/// TODO : |CLASSNAME:c| long description goes here.
+
 class |CLASSNAME|
 {
   public:
-    // ====================  LIFECYCLE     ======================================= 
+    /// \name Construction, copy and destruction
+    /// @{
+
+    /// \brief Constructor
     |CLASSNAME| ();                             // constructor      
+
+    /// \brief Copy constructor
     |CLASSNAME| ( const |CLASSNAME| &other );   // copy constructor 
+
+    /// \brief Destructor
     ~|CLASSNAME| ();                            // destructor       
+
+    /// @}
 
 		// ====================  ACCESSORS     ======================================= 
 
@@ -522,7 +532,7 @@ using namespace std;
 using namespace |?NAMESPACE|;
 == C++.namespace block xxx == map:+unb, shortcut:b ==
 namespace |?NAMESPACE| {<CURSOR>
-<SPLIT>}		// -----  end of namespace |NAMESPACE|  ----- 
+<SPLIT>}		// -----  End of namespace |NAMESPACE|  -----
 == C++.namespace alias == map:+na, shortcut:a ==
 namespace |?NAMESPACE_ALIAS|	= {-original_namespace_name-};
 == ENDTEMPLATE ==
