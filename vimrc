@@ -111,3 +111,17 @@ let g:tex_flavor='latex'
 if filereadable(".vimdirrc")
 	source .vimdirrc
 endif
+
+set shell+=\ -i
+colorscheme torte
+
+" Set some shortcuts for tab navigation
+nnoremap th  :tabprev<CR>
+nnoremap tj  :wincmd j<CR>
+nnoremap tk  :wincmd k<CR>
+nnoremap tl  :tabnext<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnew<CR>
+nnoremap tf  :find<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
