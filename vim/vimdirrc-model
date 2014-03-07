@@ -1,4 +1,13 @@
-set path=include,src,/local/include/kitelab2.07,$DEVEL_DIR/install/include
+set path=include,src,tests,/local/include/kitelab2.07,$DEVEL_DIR/install/include
 set tags+=~/devel/tagskineo
 set expandtab shiftwidth=2 tabstop=2
 let &titlestring = expand("%:p:h:t")
+set makeprg=cd\ build\ &&\ make
+
+noremap ,mm :make<CR>
+noremap ,mi :make install<CR>
+noremap ,mu :make uninstall<CR>
+noremap ,mc :make cleanCR>
+
+set foldmethod=syntax
+set foldlevelstart=3

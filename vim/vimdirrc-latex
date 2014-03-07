@@ -1,0 +1,12 @@
+let g:Tex_CompileRule_pdf="make"
+noremap ,lv :!make view-pdf &<CR><CR>
+noremap ,le :!make view-single &<CR><CR>
+noremap ,ll :make pdf<CR>
+noremap ,ls :make single<CR>
+noremap ,lb :make bibtex<CR>
+
+set path=,tex,bib,fig,alg
+
+set nofoldenable
+
+set tw=70
