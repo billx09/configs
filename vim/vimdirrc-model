@@ -4,10 +4,11 @@ set expandtab shiftwidth=2 tabstop=2
 let &titlestring = expand("%:p:h:t")
 set makeprg=cd\ build\ &&\ make
 
-noremap ,mm :make<CR>
-noremap ,mi :make install<CR>
-noremap ,mu :make uninstall<CR>
-noremap ,mc :make cleanCR>
+"noremap ,mw :tabnew<CR>:tabmove 0<CR>
+noremap ,mm :call RunMake()<CR>
+noremap ,mi :call RunMake("install")<CR>
+noremap ,mu :call RunMake("uninstall")<CR>
+noremap ,mc :call RunMake("clean")<CR>
 
 set foldmethod=syntax
 set foldlevelstart=3

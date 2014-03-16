@@ -125,3 +125,30 @@ nnoremap tn  :tabnew<CR>
 nnoremap tf  :find<Space>
 nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
+
+" Map ; to : because ; is more accessible on english keyboard.
+nmap ; :
+
+" Check for changes. Returns 1 if at least one buffer has changed
+function! CheckChange()
+  let i = 1
+  while i <= bufnr('$')
+    if (getbufvar(i, "&mod"))
+      echo "Buffer" i "(" bufname(i) ") has changed."
+      return 1
+    endif
+    let i = i + 1
+  endwhile
+endfunction
+
+function! RunMake(...)
+  if (CheckChange() == 0)
+    let args = "make"
+    for s in a:000
+      let args = args . " " . s
+    endfor
+    :tabfirst
+    execute args 
+    :cwindow
+  endif
+endfunction
