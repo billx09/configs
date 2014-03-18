@@ -1,9 +1,9 @@
 let g:Tex_CompileRule_pdf="make"
-noremap ,lv :!make view-pdf &<CR><CR>
-noremap ,le :!make view-single &<CR><CR>
-noremap ,ll :make pdf<CR>
-noremap ,ls :make single<CR>
-noremap ,lb :make bibtex<CR>
+noremap ,mv :call RunMake("view-pdf", "&")<CR><CR>
+noremap ,me :call RunMake("view-single", "&")<CR><CR>
+noremap ,mm :call RunMake("pdf")<CR>
+noremap ,ms :call RunMake("single")<CR>
+noremap ,mb :call RunMake("bibtex")<CR>
 
 set path=,tex,bib,fig,alg
 
