@@ -102,6 +102,8 @@ set wildmode=longest,list,full
 set wildmenu
 set nu
 
+set completeopt=longest,menu
+
 " set ts=4 sw=4 expandtab
 
 "set path=.,../include,$DEVEL_DIR/install/include/,/usr/local/include,/usr/include,/usr/src/linux-headers-2.6.32-38/include,**
@@ -112,13 +114,16 @@ if filereadable(".vimdirrc")
 	source .vimdirrc
 endif
 
-set shell+=\ -i
+" This commands creates a bug with vimdiff
+"set shell+=\ -i
 colorscheme torte
 
 " Set some shortcuts for tab navigation
 nnoremap th  :tabprev<CR>
 nnoremap tj  :wincmd j<CR>
 nnoremap tk  :wincmd k<CR>
+nnoremap tw  :wincmd w<CR>
+nnoremap tc  :wincmd c<CR>
 nnoremap tl  :tabnext<CR>
 nnoremap tt  :tabedit<Space>
 nnoremap tn  :tabnew<CR>
@@ -127,7 +132,14 @@ nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
 
 " Map ; to : because ; is more accessible on english keyboard.
-nmap ; :
+nnoremap ; :
+
+" Split line under cursor. (Use J to join line)
+nnoremap K i<CR><Esc>
+
+" In Command line mode, switch Space and Enter
+"cnoremap <Space> <Enter>
+"cnoremap <Enter> <Space>
 
 " Check for changes. Returns 1 if at least one buffer has changed
 function! CheckChange()
