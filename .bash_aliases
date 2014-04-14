@@ -17,6 +17,25 @@ function cdp() {
 		exit 1
 	fi
 }
+function addprefdir() {
+  PWD=$(pwd)
+  if [ "$#" -gt 0 ]; then
+    if [ -d "${PWD}/$1" ]; then
+      DIR="${PWD}/$1"
+    elif [ -d "$1" ]; then
+      DIR="$1"
+    fi
+  else
+    DIR="${PWD}"
+  fi
+  echo $DIR
+  if [ -d "${DIR}" ]; then
+    NAME="$(basename ${DIR})"
+    ln -s "${DIR}" "$HOME/.cd/"
+  else
+    echo "$1 : Not a directory"
+  fi
+}
 
 alias filterhppoutput="sed -E 's/([A-Z]+):(\/[^\/]+)+\/([kh]pp[-/][a-z-]+)\/[^:]+:([0-9]+:)?/\1:\3:/'"
 alias genhppctags='ctags --c++-kinds=+p --language-force=c++ -R -h ".cc.hh" include/ src/'
