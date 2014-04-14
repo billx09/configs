@@ -1,0 +1,11 @@
+_prefdir_comp () {
+  _oldpwd=$OLDPWD
+  curdir=$(pwd)
+  cd ~/.cd
+  tmp=( $(compgen -d -- "${COMP_WORDS[$COMP_CWORD]}" ))
+  COMPREPLY=( "${tmp[@]// /\ }" )
+  cd $curdir
+  export OLDPWD=${_oldpwd}
+}
+
+complete -F _prefdir_comp cdp

@@ -8,6 +8,17 @@ alias clean='find . -type f -name "*~" | xargs rm -f; find . -type f -name "*.lo
 alias cdgrx='cd /opt/grx/HRP2LAAS/bin'
 
 alias filterhppoutput="sed -E 's/([A-Z]+):(\/[^\/]+)+\/([kh]pp-[a-z-]+)\/[^:]+:([0-9]+:)?/\1:\3:/'"
+
+function cdp() {
+	dir="$HOME/.cd/$1"
+  if [ -d "$dir" ]; then
+    cd -P "$dir"
+  else
+	  echo "$dir : No such file or directory"
+		exit 1
+	fi
+}
+
 alias genhppctags='ctags --c++-kinds=+p --language-force=c++ -R -h ".cc.hh" include/ src/'
 alias gname='guake --selected-tab --rename-tab="$(basename `pwd`)" > /dev/null'
 
