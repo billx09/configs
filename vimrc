@@ -84,6 +84,9 @@ if has("autocmd")
 
   augroup END
 
+  " Use syntax file as dictionary when possible.
+  autocmd FileType * exe('setl dict+='.$VIMRUNTIME.'/syntax/'.&filetype.'.vim')
+
 else
 
   set autoindent		" always set autoindenting on
@@ -98,13 +101,13 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-set wildmode=longest,list,full
-set wildmenu
+set wildmode=longest,list,full wildmenu wildignorecase
 set nu
 
 set completeopt=longest,menu
 
-" set ts=4 sw=4 expandtab
+set ts=2 sw=2 expandtab
+set nowrap
 
 "set path=.,../include,$DEVEL_DIR/install/include/,/usr/local/include,/usr/include,/usr/src/linux-headers-2.6.32-38/include,**
 
@@ -120,10 +123,11 @@ colorscheme torte
 
 " Set some shortcuts for tab navigation
 nnoremap th  :tabprev<CR>
-nnoremap tj  :wincmd j<CR>
-nnoremap tk  :wincmd k<CR>
-nnoremap tw  :wincmd w<CR>
-nnoremap tc  :wincmd c<CR>
+"nnoremap tj  :wincmd j<CR>
+"nnoremap tk  :wincmd k<CR>
+"nnoremap tw  :wincmd w<CR>
+"nnoremap tc  :wincmd c<CR>
+nnoremap tw  <C-W>
 nnoremap tl  :tabnext<CR>
 nnoremap tt  :tabedit<Space>
 nnoremap tn  :tabnew<CR>
@@ -131,8 +135,19 @@ nnoremap tf  :find<Space>
 nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
 
+cnoremap <C-K> <Up>
+cnoremap <C-J> <Down>
+
 " Map ; to : because ; is more accessible on english keyboard.
-nnoremap ; :
+noremap ; :
+noremap - ;
+
+" Execute current line or current selection as shell commands
+nnoremap ,es :exe "!".getline('.')<CR>
+vnoremap ,es :exe "!".join(getline("'<","'>"),'<Bar>')<CR>
+" Execute current line or current selection as Vim Ex commands
+nnoremap ,ev :exe getline('.')<CR>
+vnoremap ,ev :exe join(getline("'<","'>"),'<Bar>')<CR>
 
 " Split line under cursor. (Use J to join line)
 nnoremap K i<CR><Esc>
@@ -142,7 +157,7 @@ nnoremap K i<CR><Esc>
 "cnoremap <Enter> <Space>
 
 " Check for changes. Returns 1 if at least one buffer has changed
-function! CheckChange()
+function CheckChange()
   let i = 1
   while i <= bufnr('$')
     if (getbufvar(i, "&mod"))
@@ -153,14 +168,53 @@ function! CheckChange()
   endwhile
 endfunction
 
-function! RunMake(...)
+function RunMake(...)
   if (CheckChange() == 0)
     let args = "make"
     for s in a:000
       let args = args . " " . s
     endfor
-    :tabfirst
+    ":tabfirst
     execute args 
     :cwindow
   endif
 endfunction
+
+function PyclewnMyMappings()
+  "exe "Cmapkeys"
+  map <C-P><C-P> :exe "Cprint " . expand("<cword>") <CR>
+  map <C-X><C-P> :exe "Cdbgvar " . expand("<cword>") <CR>
+
+  " dereference
+  map <C-P><C-X> :exe "Cprint *" . expand("<cword>") <CR>
+  map <C-X><C-X> :exe "Cdbgvar *" . expand("<cword>") <CR>
+
+  " std::vector
+  """ The following command must have been run. Put in .gdbinit for instance
+  """ source ~/.gdb/printers
+  map <C-P><C-V> :exe "C pvector ".expand("<cword>") <CR>
+  "map <C-P><C-V> :exe "Cprint *(double*)".expand("<cword>")."._M_impl._M_start@".expand("<cword>").".size()" <CR>
+  map <C-X><C-V> :exe "Cdbgvar *(double*)".expand("<cword>")."._M_impl._M_start@".expand("<cword>").".size()"
+
+  " boost
+  """ The following commands must have been run. Put in .gdbinit for instance
+  """python import; sys sys.path.append('/home/jmirabel/.gdb/py'); import displayer
+  map <C-P><C-B> :exe "C display_variable ".expand("<cword>") <CR>
+  "map <C-P><C-B> :exe "Cprint *(double*)".expand("<cword>").".data_.data_@".expand("<cword>").".data_.size_" <CR>
+  map <C-X><C-B> :exe "Cdbgvar *(double*)".expand("<cword>").".data_.data_@".expand("<cword>").".data_.size_" <CR>
+endfunction
+command Cmymapkeys call PyclewnMyMappings()
+
+function LaunchxTerm()
+  exe "Cshell setsid xterm -e inferior_tty.py &"
+  call inputsave()
+  let tty = input('Enter tty name: ', '/dev/pts/', 'file')
+  call inputrestore()
+  exe "Cset inferior-tty ".tty
+  exe "sleep 10m"
+  exe "Cset environment TERM = xterm"
+endfunction
+command ClaunchxTerm call LaunchxTerm()
+
+command Mktags if exists("ctags_command") && strlen(ctags_command)  | execute "!".g:ctags_command | endif
+noremap <silent> ,mt :Mktags<CR>

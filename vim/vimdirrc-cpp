@@ -1,5 +1,10 @@
-set path=include,src,tests,/local/include/kitelab2.07,$DEVEL_DIR/install/include
-set tags+=~/devel/tagskineo
+" vim: syntax=vim
+
+" Set the path and exclude installed header files.
+set path=include,src,tests,$DEVEL_DIR/install/include,/usr/include
+let &wildignore='**/install/include/'.substitute(expand('%:p:h:t'), '[-_]', '/', 'g').'/**,'.&wildignore
+
+
 set expandtab shiftwidth=2 tabstop=2
 let &titlestring = expand("%:p:h:t")
 set makeprg=cd\ build\ &&\ make
@@ -9,6 +14,12 @@ noremap ,mm :call RunMake()<CR>
 noremap ,mi :call RunMake("install")<CR>
 noremap ,mu :call RunMake("uninstall")<CR>
 noremap ,mc :call RunMake("clean")<CR>
+
+let g:ctags_command="ctags -o tags -R src/ idl/ tests/ include/"
+
+" The first comment can be fold when 'foldmethod' is syntax
+autocmd Syntax c,cpp syntax region cCommentLicense start="^\s*//" end="\n\s*\(\S[^/]\|\_$\)"me=s,re=s,he=s fold
+autocmd Syntax c,cpp highlight def link cCommentLicense Comment
 
 set foldmethod=syntax
 set foldlevelstart=3
