@@ -97,7 +97,7 @@ setlocal smarttab
 setlocal softtabstop=4
 setlocal statusline=[%n]\ %{GetLastClassWrapper()}\ %<%f%h%m%r%=%b\ 0x%B\ \ %l,%c%V\ %P
 setlocal tabstop=8
-setlocal textwidth=79
+setlocal foldmethod=indent
 
 " Tip 1546: Automatically add Python paths to Vim path
 if has('python')

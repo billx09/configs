@@ -35,3 +35,5 @@ inoremap  <buffer>  /*<CR>  /*<CR><CR>/<Esc>kA<Space>
 inoremap  <buffer>  {<CR>    {<CR>}<Esc>O
 vnoremap  <buffer>  {<CR>   S{<CR>}<Esc>Pk=iB
 "
+
+let g:browser_search_engine = 'cppdoc'
