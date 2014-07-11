@@ -9,12 +9,11 @@ alias cdgrx='cd /opt/grx/HRP2LAAS/bin'
 
 
 function cdp() {
-	dir="$HOME/.cd/$1"
+  dir="$HOME/.cd/$1"
   if [ -d "$dir" ]; then
     cd -P "$dir"
   else
-	  echo "$dir : No such file or directory"
-		exit 1
+    echo "$dir : No such file or directory"
 	fi
 }
 function addprefdir() {
@@ -47,3 +46,12 @@ alias vncserver-kill="vncserver -clean -kill :1"
 # vimdirrc
 alias lnvimdirrc-cpp="ln -s ~/.vim/vimdirrc-cpp .vimdirrc"
 alias lnvimdirrc-latex="ln -s ~/.vim/vimdirrc-latex .vimdirrc"
+
+# Alias for apt
+alias sag="sudo apt-get"
+complete -F _apt_get sag
+alias acs="apt-cache search"
+
+# Cmake
+alias mcmake="cmake -DCMAKE_INSTALL_PREFIX=\$DEVEL_DIR/install"
+alias mccmake="ccmake -DCMAKE_INSTALL_PREFIX=\$DEVEL_DIR/install"

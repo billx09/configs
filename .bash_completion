@@ -8,4 +8,4 @@ _prefdir_comp () {
   export OLDPWD=${_oldpwd}
 }
 
-complete -F _prefdir_comp cdp
+complete -o nospace -S "/" -F _prefdir_comp cdp
