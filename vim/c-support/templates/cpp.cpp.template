@@ -532,7 +532,7 @@ using namespace std;
 using namespace |?NAMESPACE|;
 == C++.namespace block xxx == map:+unb, shortcut:b ==
 namespace |?NAMESPACE| {<CURSOR>
-<SPLIT>}		// -----  End of namespace |NAMESPACE|  -----
+<SPLIT>} // namespace |NAMESPACE|
 == C++.namespace alias == map:+na, shortcut:a ==
 namespace |?NAMESPACE_ALIAS|	= {-original_namespace_name-};
 == ENDTEMPLATE ==
